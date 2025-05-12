@@ -80,11 +80,10 @@ namespace AllForOne_Store.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 var user = await userManager.FindByNameAsync(model.Email);
                 if (user == null)
                 {
-                    ModelState.AddModelError("", "Something is missing!");
+                    ModelState.AddModelError("", "user not found!");
                     return View(model);
                 }
                 else
@@ -94,6 +93,7 @@ namespace AllForOne_Store.Controllers
             }
             return View(model);
         }
+
         public IActionResult ChangePassword()
         {
             return View();
@@ -104,7 +104,7 @@ namespace AllForOne_Store.Controllers
             {
                 return RedirectToAction("VerifyEmail", "Account");
             }
-            return View(new ChangePasswordViewModel { Email = username });
+            return View(new ChangePasswordViewModel {Email = username });
         }
         [HttpPost]
         public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)

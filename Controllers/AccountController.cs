@@ -33,7 +33,7 @@ namespace AllForOne_Store.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Email or password is incorrect.");
+                    ModelState.AddModelError(" ", "Email or password is incorrect.");
                     return View(model);
                 }
             }
@@ -94,17 +94,17 @@ namespace AllForOne_Store.Controllers
             return View(model);
         }
 
-        public IActionResult ChangePassword()
-        {
-            return View();
-        }
+        //public IActionResult ChangePassword()
+        //{
+        //    return View();
+        //}
         public IActionResult ChangePassword(string username)
         {
             if (string.IsNullOrEmpty(username))
             {
                 return RedirectToAction("VerifyEmail", "Account");
             }
-            return View(new ChangePasswordViewModel {Email = username });
+            return View(new ChangePasswordViewModel {Email = username }); 
         }
         [HttpPost]
         public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)

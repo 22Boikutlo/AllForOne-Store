@@ -17,7 +17,7 @@ namespace AllForOne_Store.ViewModels
         [Required(ErrorMessage = "Confirm password is required.")]
         [DataType(DataType.Password)]
         [Display(Name ="Confirm New Password")]
-        [Compare("  NewPassword", ErrorMessage = "Password do not match.")]
+        [Compare("NewPassword", ErrorMessage = "Password do not match.")]
         public string ConfirmNewPassword { get; set; }
     }
 }

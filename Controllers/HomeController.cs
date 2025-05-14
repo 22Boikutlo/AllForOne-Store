@@ -21,11 +21,9 @@ namespace AllForOne_Store.Controllers
         public async Task<IActionResult> Index()
         {
             // Fetch some products to feature (e.g., the first 4 products or any custom selection)
-            var featuredProducts = await _context.Products
-                .Take(4)  // You can adjust the number or criteria as needed
-                .ToListAsync();
+          
 
-            return View(featuredProducts);  // Pass them to the view
+            return View();  // Pass them to the view
         }
 
         //public IActionResult Index()

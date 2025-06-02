@@ -94,10 +94,6 @@ namespace AllForOne_Store.Controllers
             return View(model);
         }
 
-        //public IActionResult ChangePassword()
-        //{
-        //    return View();
-        //}
         public IActionResult ChangePassword(string username)
         {
             if (string.IsNullOrEmpty(username))
